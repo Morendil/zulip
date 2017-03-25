@@ -173,6 +173,8 @@ MIDDLEWARE = (
     'two_factor.middleware.threadlocals.ThreadLocals',  # Required by Twilio
     # Needs to be after CommonMiddleware, which sets Content-Length
     'zerver.middleware.FinalizeOpenGraphDescription',
+    # django oauth toolkit
+    'corsheaders.middleware.CorsMiddleware',
 )
 
 ANONYMOUS_USER_ID = None
@@ -202,6 +204,8 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
     'two_factor',
+    # oatuh toolkit
+    'oauth2_provider',
 ]
 if USING_PGROONGA:
     INSTALLED_APPS += ['pgroonga']
@@ -1074,3 +1078,8 @@ CROSS_REALM_BOT_EMAILS = {
 THUMBOR_KEY = get_secret('thumbor_key')
 
 TWO_FACTOR_PATCH_ADMIN = False
+CONTRIBUTORS_DATA = os.path.join(STATIC_ROOT, 'generated/github-contributors.json')
+
+
+# allow cors request from all domains for demo propose
+# CORS_ORIGIN_ALLOW_ALL = True

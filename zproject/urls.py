@@ -725,6 +725,9 @@ urls += [
 urls += [url(r'^', include('social_django.urls', namespace='social'))]
 urls += [url(r'^saml/metadata.xml$', zerver.views.auth.saml_sp_metadata)]
 
+# django oauth toolkit
+urls += [url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),]
+
 # User documentation site
 urls += [url(r'^help/(?P<article>.*)$',
              MarkdownDirectoryView.as_view(template_name='zerver/documentation_main.html',

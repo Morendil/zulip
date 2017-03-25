@@ -179,3 +179,8 @@ django-cookies-samesite
 
 # For server-side enforcement of password strength
 zxcvbn
+
+# Needed for oauth
+django-cors-middleware==1.3.1
+django-oauth-toolkit==0.12.0
+django-braces==1.11.0
